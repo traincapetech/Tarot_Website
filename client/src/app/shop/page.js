@@ -15,8 +15,8 @@ const ITEMS_PER_PAGE = 8;
 
 export default function ShopPage() {
     const [searchQuery, setSearchQuery] = useState("");
-    const [selectedCategory, setSelectedCategory] = useState("All");
-    const [selectedPurpose, setSelectedPurpose] = useState("All");
+    const [selectedCategories, setSelectedCategories] = useState([]);
+    const [selectedPurposes, setSelectedPurposes] = useState([]);
     const [sortOption, setSortOption] = useState("newest"); // 'newest', 'price-low', 'price-high'
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
@@ -24,8 +24,8 @@ export default function ShopPage() {
     // 1. Filter logic
     let filteredProducts = MOCK_PRODUCTS.filter((product) => {
         const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase());
-        const matchesCategory = selectedCategory === "All" || product.category === selectedCategory;
-        const matchesPurpose = selectedPurpose === "All" || product.purpose === selectedPurpose;
+        const matchesCategory = selectedCategories.length === 0 || selectedCategories.includes(product.category);
+        const matchesPurpose = selectedPurposes.length === 0 || selectedPurposes.includes(product.purpose);
         return matchesSearch && matchesCategory && matchesPurpose;
     });
 
@@ -42,9 +42,30 @@ export default function ShopPage() {
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const paginatedProducts = filteredProducts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
-    // Handle page resets when filters change
-    const handleFilterChange = (setter, value) => {
-        setter(value);
+    // Filter toggles
+    const toggleCategory = (category) => {
+        if (category === "All") {
+            setSelectedCategories([]);
+        } else {
+            setSelectedCategories(prev =>
+                prev.includes(category)
+                    ? prev.filter(c => c !== category)
+                    : [...prev, category]
+            );
+        }
+        setCurrentPage(1);
+    };
+
+    const togglePurpose = (purpose) => {
+        if (purpose === "All") {
+            setSelectedPurposes([]);
+        } else {
+            setSelectedPurposes(prev =>
+                prev.includes(purpose)
+                    ? prev.filter(p => p !== purpose)
+                    : [...prev, purpose]
+            );
+        }
         setCurrentPage(1);
     };
 
@@ -95,7 +116,7 @@ export default function ShopPage() {
                             placeholder="Search treasures..."
                             className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/50 dark:bg-black/20 border border-earth-800/20 dark:border-earth-50/20 focus:outline-none focus:ring-2 focus:ring-gold-500 backdrop-blur-sm"
                             value={searchQuery}
-                            onChange={(e) => handleFilterChange(setSearchQuery, e.target.value)}
+                            onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }}
                         />
                         <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-earth-900/50 dark:text-earth-50/50" />
                     </div>
@@ -103,60 +124,66 @@ export default function ShopPage() {
                     <div className="glass-card p-6 rounded-2xl">
                         <h3 className="font-heading font-semibold text-lg mb-4 border-b border-earth-800/10 dark:border-earth-50/10 pb-2">Category</h3>
                         <ul className="space-y-3">
-                            {CATEGORIES.map(category => (
-                                <li key={category}>
-                                    <label className="flex items-center gap-3 cursor-pointer group">
-                                        <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${selectedCategory === category ? 'bg-gold-500 border-gold-500' : 'border-earth-800/30 dark:border-earth-50/30 group-hover:border-gold-400'}`}>
-                                            {selectedCategory === category && <div className="w-2.5 h-2.5 bg-white rounded-sm" />}
-                                        </div>
-                                        <input
-                                            type="radio"
-                                            className="hidden"
-                                            name="category"
-                                            checked={selectedCategory === category}
-                                            onChange={() => handleFilterChange(setSelectedCategory, category)}
-                                        />
-                                        <span className={selectedCategory === category ? 'font-medium' : 'text-earth-900/70 dark:text-earth-50/70 group-hover:text-earth-900 dark:group-hover:text-earth-50'}>
-                                            {category}
-                                        </span>
-                                    </label>
-                                </li>
-                            ))}
+                            {CATEGORIES.map(category => {
+                                const isSelected = category === "All" ? selectedCategories.length === 0 : selectedCategories.includes(category);
+                                return (
+                                    <li key={category}>
+                                        <label className="flex items-center gap-3 cursor-pointer group">
+                                            <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${isSelected ? 'bg-gold-500 border-gold-500' : 'border-earth-800/30 dark:border-earth-50/30 group-hover:border-gold-400'}`}>
+                                                {isSelected && <div className="w-2.5 h-2.5 bg-white rounded-sm" />}
+                                            </div>
+                                            <input
+                                                type={category === "All" ? "radio" : "checkbox"}
+                                                className="hidden"
+                                                name="category"
+                                                checked={isSelected}
+                                                onChange={() => toggleCategory(category)}
+                                            />
+                                            <span className={isSelected ? 'font-medium' : 'text-earth-900/70 dark:text-earth-50/70 group-hover:text-earth-900 dark:group-hover:text-earth-50'}>
+                                                {category}
+                                            </span>
+                                        </label>
+                                    </li>
+                                );
+                            })}
                         </ul>
                     </div>
 
                     <div className="glass-card p-6 rounded-2xl">
                         <h3 className="font-heading font-semibold text-lg mb-4 border-b border-earth-800/10 dark:border-earth-50/10 pb-2">Intention & Purpose</h3>
                         <ul className="space-y-3">
-                            {PURPOSES.map(purpose => (
-                                <li key={purpose}>
-                                    <label className="flex items-center gap-3 cursor-pointer group">
-                                        <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${selectedPurpose === purpose ? 'bg-amethyst-500 border-amethyst-500' : 'border-earth-800/30 dark:border-earth-50/30 group-hover:border-amethyst-400'}`}>
-                                            {selectedPurpose === purpose && <div className="w-2.5 h-2.5 bg-white rounded-sm" />}
-                                        </div>
-                                        <input
-                                            type="radio"
-                                            className="hidden"
-                                            name="purpose"
-                                            checked={selectedPurpose === purpose}
-                                            onChange={() => handleFilterChange(setSelectedPurpose, purpose)}
-                                        />
-                                        <span className={selectedPurpose === purpose ? 'font-medium' : 'text-earth-900/70 dark:text-earth-50/70 group-hover:text-earth-900 dark:group-hover:text-earth-50'}>
-                                            {purpose}
-                                        </span>
-                                    </label>
-                                </li>
-                            ))}
+                            {PURPOSES.map(purpose => {
+                                const isSelected = purpose === "All" ? selectedPurposes.length === 0 : selectedPurposes.includes(purpose);
+                                return (
+                                    <li key={purpose}>
+                                        <label className="flex items-center gap-3 cursor-pointer group">
+                                            <div className={`w-5 h-5 rounded border flex items-center justify-center transition-colors ${isSelected ? 'bg-amethyst-500 border-amethyst-500' : 'border-earth-800/30 dark:border-earth-50/30 group-hover:border-amethyst-400'}`}>
+                                                {isSelected && <div className="w-2.5 h-2.5 bg-white rounded-sm" />}
+                                            </div>
+                                            <input
+                                                type={purpose === "All" ? "radio" : "checkbox"}
+                                                className="hidden"
+                                                name="purpose"
+                                                checked={isSelected}
+                                                onChange={() => togglePurpose(purpose)}
+                                            />
+                                            <span className={isSelected ? 'font-medium' : 'text-earth-900/70 dark:text-earth-50/70 group-hover:text-earth-900 dark:group-hover:text-earth-50'}>
+                                                {purpose}
+                                            </span>
+                                        </label>
+                                    </li>
+                                );
+                            })}
                         </ul>
                     </div>
 
                     {/* Clear Filters */}
-                    {(selectedCategory !== "All" || selectedPurpose !== "All" || searchQuery !== "") && (
+                    {(selectedCategories.length > 0 || selectedPurposes.length > 0 || searchQuery !== "") && (
                         <button
                             onClick={() => {
                                 setSearchQuery("");
-                                setSelectedCategory("All");
-                                setSelectedPurpose("All");
+                                setSelectedCategories([]);
+                                setSelectedPurposes([]);
                                 setCurrentPage(1);
                             }}
                             className="w-full py-3 text-sm font-medium border border-earth-800/20 dark:border-earth-50/20 rounded-xl hover:bg-earth-800/5 dark:hover:bg-earth-50/5 transition-colors"
