@@ -59,7 +59,7 @@ export default function HeroSection() {
                             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                         </Link>
                         <Link
-                            href="/readings"
+                            href="/book"
                             className="flex items-center justify-center glass px-8 py-4 rounded-full font-medium transition-all hover:bg-white/40 dark:hover:bg-black/40 hover:scale-105"
                         >
                             Book a Reading

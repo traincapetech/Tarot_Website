@@ -30,7 +30,7 @@ export default function Navbar() {
                 </Link>
                 <div className="hidden md:flex items-center space-x-8 lg:space-x-12">
                     <Link href="/shop" className="hover:text-gold-500 transition-colors font-medium">Shop</Link>
-                    <Link href="/readings" className="hover:text-gold-500 transition-colors font-medium">Book Reading</Link>
+                    <Link href="/book" className="hover:text-gold-500 transition-colors font-medium">Book</Link>
                     <Link href="/about" className="hover:text-gold-500 transition-colors font-medium">About</Link>
                     <Link href="/events" className="hover:text-gold-500 transition-colors font-medium">Events</Link>
                 </div>
@@ -61,7 +61,7 @@ export default function Navbar() {
                     className="md:hidden glass absolute top-full left-0 w-full flex flex-col items-center py-6 space-y-6"
                 >
                     <Link href="/shop" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-heading">Shop</Link>
-                    <Link href="/readings" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-heading">Book Reading</Link>
+                    <Link href="/book" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-heading">Book</Link>
                     <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-heading">About</Link>
                     <Link href="/events" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-heading">Events</Link>
                 </motion.div>
