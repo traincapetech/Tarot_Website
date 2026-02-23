@@ -340,3 +340,90 @@ export const MOCK_PRODUCTS = [
         element: "Earth",
     },
 ];
+
+export const MOCK_EVENTS = [
+    {
+        id: 1,
+        title: "Full Moon Release Ritual",
+        type: "Online Workshop",
+        image: "🌕",
+        month: "Oct",
+        day: "28",
+        fullDate: "Saturday, October 28th, 2026",
+        time: "7:00 PM EST",
+        duration: "90 mins",
+        price: 25,
+        location: "Zoom (Link provided upon registration)",
+        spotsAvailable: 45,
+        description: "Join @toughest.girl for a powerful guided Full Moon release ritual. We will be shedding old energetic skin, burning away limiting beliefs, and honoring the completion of a major cycle. Bring a journal, a pen, and a candle.",
+        host: "@toughest.girl",
+        highlights: [
+            "Guided energetic cord-cutting meditation",
+            "Astrological breakdown of the current lunation",
+            "Live Q&A and collective card pull"
+        ]
+    },
+    {
+        id: 2,
+        title: "Introduction to Pendulum Dowsing",
+        type: "Masterclass",
+        image: "🔮",
+        month: "Nov",
+        day: "12",
+        fullDate: "Sunday, November 12th, 2026",
+        time: "2:00 PM EST",
+        duration: "2 hours",
+        price: 45,
+        location: "Virtual Classroom",
+        spotsAvailable: 20,
+        description: "A comprehensive beginner's guide to working with a pendulum. Learn how to accurately program your pendulum, clear your own bias, and tap into your higher spirit guides for definitive answers.",
+        host: "Earth Healers Team",
+        highlights: [
+            "How to cleanse and program your pendulum",
+            "Navigating bias vs intuition",
+            "Working with pendulum charts and boards"
+        ]
+    },
+    {
+        id: 3,
+        title: "Sacred Cacao & Sound Bath",
+        type: "In-Person Gathering",
+        image: "☕",
+        month: "Dec",
+        day: "05",
+        fullDate: "Tuesday, December 5th, 2026",
+        time: "6:30 PM EST",
+        duration: "2.5 hours",
+        price: 65,
+        location: "The Healing Sanctuary, NY",
+        spotsAvailable: 5,
+        description: "An intimate, in-person gathering featuring a ceremonial cacao pouring followed by a deeply restorative crystal singing bowl sound bath. Designed to open the heart chakra and ground the nervous system.",
+        host: "@toughest.girl & Guest Sound Healer",
+        highlights: [
+            "Ceremonial grade Guatemalan Cacao",
+            "90-minute immersive sound healing",
+            "Community integration circle"
+        ]
+    },
+    {
+        id: 4,
+        title: "2027 Cosmic Forecast & Planning",
+        type: "Webinar",
+        image: "🪐",
+        month: "Dec",
+        day: "29",
+        fullDate: "Tuesday, December 29th, 2026",
+        time: "5:00 PM EST",
+        duration: "3 hours",
+        price: 55,
+        location: "Zoom",
+        spotsAvailable: 100,
+        description: "Prepare for the year ahead. A deep dive into the major astrological transits, eclipses, and energetic shifts predicted for 2027. Includes a digital workbook for planning your year in alignment with the stars.",
+        host: "@toughest.girl",
+        highlights: [
+            "Month-by-month transit breakdown",
+            "Navigating Mercury and Venus retrogrades",
+            "Personal intention setting workshop"
+        ]
+    },
+];
