@@ -33,6 +33,7 @@ export default function Navbar() {
                     <Link href="/book" className="hover:text-gold-500 transition-colors font-medium">Book</Link>
                     <Link href="/about" className="hover:text-gold-500 transition-colors font-medium">About</Link>
                     <Link href="/events" className="hover:text-gold-500 transition-colors font-medium">Events</Link>
+                    <Link href="/contact" className="hover:text-gold-500 transition-colors font-medium">Contact</Link>
                 </div>
                 <div className="hidden md:flex items-center space-x-4">
                     <button aria-label="Account" className="p-2 rounded-full hover:bg-earth-800/10 dark:hover:bg-earth-50/10 transition-colors">
@@ -64,6 +65,7 @@ export default function Navbar() {
                     <Link href="/book" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-heading">Book</Link>
                     <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-heading">About</Link>
                     <Link href="/events" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-heading">Events</Link>
+                    <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-heading">Contact</Link>
                 </motion.div>
             )}
         </nav>
