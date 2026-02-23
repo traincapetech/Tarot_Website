@@ -3,14 +3,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { ShoppingBag, Star } from "lucide-react";
-
-// Mock data
-const PRODUCTS = [
-    { id: 1, name: "Amethyst Cluster", price: "$45.00", category: "Crystal", image: "🟣", purpose: "Protection & Intuition" },
-    { id: 2, name: "Rose Quartz Wand", price: "$30.00", category: "Healing Tool", image: "🌸", purpose: "Love & Harmony" },
-    { id: 3, name: "Clear Quartz Sphere", price: "$65.00", category: "Crystal", image: "⚪", purpose: "Clarity & Energy" },
-    { id: 4, name: "Mystic Tarot Deck", price: "$40.00", category: "Divination", image: "🃏", purpose: "Guidance" },
-];
+import ProductCard from "./ProductCard";
+import { MOCK_PRODUCTS } from "@/lib/mockData";
 
 export default function FeaturedProducts() {
     return (
@@ -48,40 +42,8 @@ export default function FeaturedProducts() {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {PRODUCTS.map((product, index) => (
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 + index * 0.1 }}
-                            key={product.id}
-                            className="glass-card rounded-2xl p-4 group cursor-pointer"
-                        >
-                            <div className="aspect-[4/5] rounded-xl bg-earth-800/5 dark:bg-earth-50/5 flex items-center justify-center text-8xl mb-6 relative overflow-hidden transition-all group-hover:bg-earth-800/10 dark:group-hover:bg-earth-50/10">
-                                <span className="group-hover:scale-110 transition-transform duration-500">
-                                    {product.image}
-                                </span>
-
-                                {/* Overlay Add to Cart button */}
-                                <div className="absolute inset-0 bg-black/5 dark:bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
-                                    <button className="bg-gold-500 hover:bg-gold-600 text-white px-6 py-2.5 rounded-full font-medium flex items-center gap-2 transform translate-y-8 group-hover:translate-y-0 transition-all duration-300 shadow-xl text-sm">
-                                        <ShoppingBag size={18} />
-                                        <span>Add to Cart</span>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div className="px-2">
-                                <div className="flex justify-between items-start mb-2">
-                                    <h3 className="font-heading text-xl font-semibold">{product.name}</h3>
-                                    <span className="text-gold-600 dark:text-gold-400 font-medium">{product.price}</span>
-                                </div>
-                                <p className="text-sm text-earth-900/60 dark:text-earth-50/60 mb-3">{product.category} • {product.purpose}</p>
-                                <div className="flex text-gold-500">
-                                    {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
-                                </div>
-                            </div>
-                        </motion.div>
+                    {MOCK_PRODUCTS.slice(0, 4).map((product, index) => (
+                        <ProductCard key={product.id} product={product} index={index} />
                     ))}
                 </div>
 

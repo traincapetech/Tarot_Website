@@ -7,29 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
 
-// Extensive mock data for testing filters and pagination
-const MOCK_PRODUCTS = [
-    { id: 1, name: "Amethyst Cluster", price: 45.0, category: "Crystal", image: "🟣", purpose: "Protection", rating: 5 },
-    { id: 2, name: "Rose Quartz Wand", price: 30.0, category: "Healing Tool", image: "🌸", purpose: "Love", rating: 5 },
-    { id: 3, name: "Clear Quartz Sphere", price: 65.0, category: "Crystal", image: "⚪", purpose: "Healing", rating: 5 },
-    { id: 4, name: "Mystic Tarot Deck", price: 40.0, category: "Divination", image: "🃏", purpose: "Intuition", rating: 4 },
-    { id: 5, name: "Citrine Point", price: 25.0, category: "Crystal", image: "💛", purpose: "Wealth", rating: 4 },
-    { id: 6, name: "Obsidian Pyramid", price: 55.0, category: "Crystal", image: "🖤", purpose: "Protection", rating: 5 },
-    { id: 7, name: "Sage Smudge Stick", price: 15.0, category: "Healing Tool", image: "🌿", purpose: "Healing", rating: 5 },
-    { id: 8, name: "Selenite Tower", price: 35.0, category: "Crystal", image: "🤍", purpose: "Intuition", rating: 4 },
-    { id: 9, name: "Oracle Cards", price: 38.0, category: "Divination", image: "🎴", purpose: "Intuition", rating: 5 },
-    { id: 10, name: "Tiger's Eye Bracelet", price: 28.0, category: "Jewelry", image: "🐯", purpose: "Wealth", rating: 5 },
-    { id: 11, name: "Green Aventurine", price: 18.0, category: "Crystal", image: "💚", purpose: "Wealth", rating: 4 },
-    { id: 12, name: "Pendulum Board", price: 45.0, category: "Divination", image: "🔮", purpose: "Intuition", rating: 5 },
-    { id: 13, name: "Chakra Healing Set", price: 85.0, category: "Healing Tool", image: "🌈", purpose: "Healing", rating: 5 },
-    { id: 14, name: "Moonstone Ring", price: 95.0, category: "Jewelry", image: "🌙", purpose: "Love", rating: 5 },
-    { id: 15, name: "Lapis Lazuli Raw", price: 42.0, category: "Crystal", image: "💙", purpose: "Intuition", rating: 4 },
-    { id: 16, name: "Palo Santo Bundles", price: 20.0, category: "Healing Tool", image: "🪵", purpose: "Protection", rating: 5 },
-    { id: 17, name: "Malachite Heart", price: 60.0, category: "Crystal", image: "💚", purpose: "Love", rating: 5 },
-    { id: 18, name: "Astrology Digest", price: 30.0, category: "Divination", image: "⭐", purpose: "Intuition", rating: 4 },
-    { id: 19, name: "Singing Bowl", price: 120.0, category: "Healing Tool", image: "🥣", purpose: "Healing", rating: 5 },
-    { id: 20, name: "Black Tourmaline", price: 22.0, category: "Crystal", image: "⬛", purpose: "Protection", rating: 5 },
-];
+import { MOCK_PRODUCTS } from "@/lib/mockData";
 
 const CATEGORIES = ["All", "Crystal", "Healing Tool", "Divination", "Jewelry"];
 const PURPOSES = ["All", "Protection", "Love", "Wealth", "Intuition", "Healing"];
@@ -245,8 +223,8 @@ export default function ShopPage() {
                                             key={i}
                                             onClick={() => setCurrentPage(i + 1)}
                                             className={`w-10 h-10 rounded-lg font-medium transition-colors flex items-center justify-center ${currentPage === i + 1
-                                                    ? 'bg-gold-500 text-white'
-                                                    : 'hover:bg-earth-800/10 dark:hover:bg-earth-50/10'
+                                                ? 'bg-gold-500 text-white'
+                                                : 'hover:bg-earth-800/10 dark:hover:bg-earth-50/10'
                                                 }`}
                                         >
                                             {i + 1}
