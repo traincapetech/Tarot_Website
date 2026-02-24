@@ -61,7 +61,7 @@ export default function AboutSection() {
                             className="space-y-6 text-lg text-earth-900/80 dark:text-earth-50/80 mb-10"
                         >
                             <p>
-                                Founded by <span className="text-gold-600 dark:text-gold-400 font-medium">@toughest.girl</span>, Earth Healers is more than an online boutique—it's a sanctuary for souls seeking clarity, healing, and alignment.
+                                Founded by <a href="https://www.instagram.com/toughest.girl/" target="_blank" className="text-gold-600 dark:text-gold-400 font-medium">@toughest.girl</a>, Earth Healers is more than an online boutique—it's a sanctuary for souls seeking clarity, healing, and alignment.
                             </p>
                             <p>
                                 We believe that the earth provides everything we need to heal. From ethically sourced crystals to profound tarot and astrology readings, every offering is curated with intention and deeply rooted in spiritual wisdom.
