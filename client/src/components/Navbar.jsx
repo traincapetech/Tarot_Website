@@ -2,12 +2,33 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Menu, X, ShoppingBag, User } from "lucide-react";
+import { Menu, X, ShoppingBag, User, Sun, Moon } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [theme, setTheme] = useState("dark");
+
+    useEffect(() => {
+        const stored = localStorage.getItem("theme");
+        if (stored === "light") {
+            setTheme("light");
+        } else {
+            setTheme("dark");
+        }
+    }, []);
+
+    const toggleTheme = () => {
+        const newTheme = theme === "dark" ? "light" : "dark";
+        setTheme(newTheme);
+        localStorage.setItem("theme", newTheme);
+        if (newTheme === "dark") {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -36,6 +57,9 @@ export default function Navbar() {
                     <Link href="/contact" className="hover:text-gold-500 transition-colors font-medium">Contact</Link>
                 </div>
                 <div className="hidden md:flex items-center space-x-4">
+                    <button onClick={toggleTheme} aria-label="Toggle Theme" className="p-2 rounded-full hover:bg-earth-800/10 dark:hover:bg-earth-50/10 transition-colors">
+                        {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+                    </button>
                     <button aria-label="Account" className="p-2 rounded-full hover:bg-earth-800/10 dark:hover:bg-earth-50/10 transition-colors">
                         <User size={20} />
                     </button>
@@ -46,12 +70,17 @@ export default function Navbar() {
                         </span>
                     </button>
                 </div>
-                <button
-                    className="md:hidden p-2"
-                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                >
-                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
+                <div className="md:hidden flex items-center space-x-2">
+                    <button onClick={toggleTheme} aria-label="Toggle Theme" className="p-2">
+                        {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+                    </button>
+                    <button
+                        className="p-2"
+                        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    >
+                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
+                </div>
             </div>
 
             {/* Mobile Menu */}
