@@ -15,18 +15,13 @@ export default function AboutSection() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.8 }}
-                            className="relative aspect-square md:aspect-[4/3] lg:aspect-square rounded-[2rem] overflow-hidden glass-card flex items-center justify-center p-8"
+                            className="relative aspect-square md:aspect-[4/3] lg:aspect-square rounded-[2rem] overflow-hidden flex items-center justify-center border border-white/10"
                         >
-                            <div className="text-center z-10">
-                                <span className="text-amethyst-500 font-heading text-6xl mb-6 block">🌿</span>
-                                <p className="font-heading text-3xl font-light italic opacity-90 leading-relaxed">
-                                    "Healing begins within."
-                                </p>
-                            </div>
-
-                            {/* Decorative Elements */}
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-amethyst-500/10 rounded-full blur-[60px] pointer-events-none" />
-                            <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold-400/10 rounded-full blur-[60px] pointer-events-none" />
+                            <img
+                                src="data:image/svg+xml;utf8,%3Csvg%20width%3D%22800%22%20height%3D%221000%22%20viewBox%3D%220%200%20800%201000%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2314532d%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23052e16%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%221000%22%20fill%3D%22url(%23g)%22%2F%3E%3Ccircle%20cx%3D%22400%22%20cy%3D%22500%22%20r%3D%22300%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%222%22%20stroke-dasharray%3D%2210%2015%22%20opacity%3D%220.3%22%2F%3E%3Ccircle%20cx%3D%22400%22%20cy%3D%22500%22%20r%3D%22280%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%221%22%20opacity%3D%220.1%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22470%22%20font-family%3D%22sans-serif%22%20font-size%3D%2270%22%20font-weight%3D%22bold%22%20fill%3D%22%23F8F3E6%22%20text-anchor%3D%22middle%22%3EOur%20Vision%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22550%22%20font-family%3D%22sans-serif%22%20font-size%3D%2240%22%20font-weight%3D%22300%22%20fill%3D%22%23D4AF37%22%20text-anchor%3D%22middle%22%3EHealing%20Begins%20Within%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22300%22%20font-family%3D%22sans-serif%22%20font-size%3D%2280%22%20fill%3D%22%23D4AF37%22%20text-anchor%3D%22middle%22%20opacity%3D%220.5%22%3E%E2%9C%A6%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22760%22%20font-family%3D%22sans-serif%22%20font-size%3D%2220%22%20letter-spacing%3D%224%22%20fill%3D%22%23F8F3E6%22%20text-anchor%3D%22middle%22%20opacity%3D%220.4%22%3EEARTH%20HEALERS%3C%2Ftext%3E%3C%2Fsvg%3E"
+                                alt="Our Vision"
+                                className="w-full h-full object-cover"
+                            />
                         </motion.div>
 
                         {/* External Decorative Elements */}

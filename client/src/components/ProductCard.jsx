@@ -20,9 +20,11 @@ export default function ProductCard({ product, index = 0 }) {
         >
             <Link href={`/shop/${product.id}`} className="glass-card rounded-2xl p-4 group cursor-pointer flex flex-col h-full transition-transform hover:-translate-y-1">
                 <div className="aspect-[4/5] rounded-xl bg-earth-800/5 dark:bg-earth-50/5 flex items-center justify-center text-8xl mb-6 relative overflow-hidden transition-all group-hover:bg-earth-800/10 dark:group-hover:bg-earth-50/10 shrink-0">
-                    <span className="group-hover:scale-110 transition-transform duration-500">
-                        {product.image || "✨"}
-                    </span>
+                    <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
 
                     {/* Overlay Add to Cart button - Pills shaped, slides up */}
                     <div className="absolute inset-0 bg-black/5 dark:bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">

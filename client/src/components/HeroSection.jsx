@@ -73,18 +73,17 @@ export default function HeroSection() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 1, delay: 0.5 }}
-                        className="relative w-full max-w-md aspect-[4/5] rounded-[2rem] overflow-hidden glass-card flex items-center justify-center"
+                        className="relative w-full max-w-md aspect-[4/5] rounded-[2rem] overflow-hidden flex items-center justify-center shadow-2xl"
                     >
-                        {/* Note: since no images are provided, using an elegant placeholder visually */}
-                        <div className="text-center p-8">
-                            <motion.span
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                                className="text-gold-500 font-heading text-6xl mb-6 block"
-                            >
-                                ✧
-                            </motion.span>
-                            <p className="font-heading text-2xl font-light italic opacity-80">
+                        {/* High quality hero image */}
+                        <img
+                            src="data:image/svg+xml;utf8,%3Csvg%20width%3D%22800%22%20height%3D%221000%22%20viewBox%3D%220%200%20800%201000%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%233b0764%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23140a25%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%221000%22%20fill%3D%22url(%23g)%22%2F%3E%3Ccircle%20cx%3D%22400%22%20cy%3D%22500%22%20r%3D%22300%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%222%22%20stroke-dasharray%3D%2210%2015%22%20opacity%3D%220.3%22%2F%3E%3Ccircle%20cx%3D%22400%22%20cy%3D%22500%22%20r%3D%22280%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%221%22%20opacity%3D%220.1%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22560%22%20font-family%3D%22sans-serif%22%20font-size%3D%22200%22%20fill%3D%22%23D4AF37%22%20text-anchor%3D%22middle%22%20opacity%3D%220.5%22%3E%E2%9C%A7%3C%2Ftext%3E%3C%2Fsvg%3E"
+                            alt="Crystal Healing"
+                            className="w-full h-full object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-earth-900/80 via-transparent to-transparent z-10 pointer-events-none" />
+                        <div className="absolute inset-0 z-20 flex items-end p-8">
+                            <p className="font-heading text-2xl font-light italic text-earth-50">
                                 "The soul is healed by being with it."
                             </p>
                         </div>

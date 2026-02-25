@@ -56,10 +56,9 @@ export default function AboutPage() {
 
                             <div className="order-1 lg:order-2 relative h-[500px] rounded-2xl overflow-hidden glass-card p-2 shadow-2xl">
                                 <div className="absolute inset-0 bg-gradient-to-tr from-earth-900/20 to-transparent z-10" />
-                                {/* Placeholder image - using a mystical aesthetic */}
-                                <div className="w-full h-full bg-earth-800/10 dark:bg-earth-50/10 rounded-xl flex items-center justify-center overflow-hidden relative">
-                                    <div className="absolute w-64 h-64 bg-gold-500/20 rounded-full blur-[60px]" />
-                                    <Sparkles className="w-24 h-24 text-gold-500/50" />
+                                {/* Real Image */}
+                                <div className="w-full h-full rounded-xl flex items-center justify-center overflow-hidden relative border border-earth-800/10 dark:border-earth-50/10">
+                                    <img src="data:image/svg+xml;utf8,%3Csvg%20width%3D%22800%22%20height%3D%221000%22%20viewBox%3D%220%200%20800%201000%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23831843%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%233a091d%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%221000%22%20fill%3D%22url(%23g)%22%2F%3E%3Ccircle%20cx%3D%22400%22%20cy%3D%22500%22%20r%3D%22300%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%222%22%20stroke-dasharray%3D%2210%2015%22%20opacity%3D%220.3%22%2F%3E%3Ccircle%20cx%3D%22400%22%20cy%3D%22500%22%20r%3D%22280%22%20fill%3D%22none%22%20stroke%3D%22%23D4AF37%22%20stroke-width%3D%221%22%20opacity%3D%220.1%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22540%22%20font-family%3D%22sans-serif%22%20font-size%3D%22200%22%20fill%3D%22%23D4AF37%22%20text-anchor%3D%22middle%22%20opacity%3D%220.5%22%3E%F0%9F%95%AF%EF%B8%8F%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Amethyst Insight" className="w-full h-full object-cover" />
                                 </div>
                             </div>
                         </div>
@@ -110,7 +109,7 @@ export default function AboutPage() {
                                 <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-2 bg-gradient-to-tr from-gold-500 via-amethyst-500 to-earth-500">
                                     <div className="w-full h-full bg-earth-50 dark:bg-earth-950 rounded-full overflow-hidden relative flex items-center justify-center shadow-inner">
                                         <div className="absolute inset-0 bg-earth-900/5 dark:bg-earth-50/5 flex items-center justify-center">
-                                            <span className="text-6xl">👤</span>
+                                            <img src="data:image/svg+xml;utf8,%3Csvg%20width%3D%22800%22%20height%3D%22800%22%20viewBox%3D%220%200%20800%20800%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%23064e3b%22%2F%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23022c22%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Crect%20width%3D%22800%22%20height%3D%22800%22%20fill%3D%22url(%23g)%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22480%22%20font-family%3D%22sans-serif%22%20font-size%3D%22300%22%20fill%3D%22%23D4AF37%22%20text-anchor%3D%22middle%22%20opacity%3D%220.8%22%3E%F0%9F%91%A4%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Mentor Profile" className="w-full h-full object-cover" />
                                         </div>
                                     </div>
 

@@ -7,7 +7,7 @@ export default function ProductGallery({ images, name }) {
     const [activeImageIndex, setActiveImageIndex] = useState(0);
 
     // Fallback if no images provided
-    const displayImages = images?.length > 0 ? images : ["✨", "✨", "✨"];
+    const displayImages = images?.length > 0 ? images : ["https://images.unsplash.com/photo-1544365558-35aa4afcf11f?q=80&w=800"];
 
     return (
         <div className="flex flex-col-reverse md:flex-row gap-4 h-full">
@@ -19,11 +19,11 @@ export default function ProductGallery({ images, name }) {
                         onClick={() => setActiveImageIndex(idx)}
                         aria-label={`View ${name} image ${idx + 1}`}
                         className={`relative w-20 md:w-full aspect-square rounded-xl bg-earth-800/5 dark:bg-earth-50/5 flex items-center justify-center text-3xl overflow-hidden transition-all duration-300 shrink-0 ${activeImageIndex === idx
-                                ? "ring-2 ring-gold-500 ring-offset-2 ring-offset-earth-50 dark:ring-offset-earth-950"
-                                : "hover:bg-earth-800/10 dark:hover:bg-earth-50/10 border border-transparent"
+                            ? "ring-2 ring-gold-500 ring-offset-2 ring-offset-earth-50 dark:ring-offset-earth-950"
+                            : "hover:bg-earth-800/10 dark:hover:bg-earth-50/10 border border-transparent"
                             }`}
                     >
-                        {img}
+                        <img src={img} alt={`${name} thumbnail ${idx + 1}`} className="w-full h-full object-cover" />
                     </button>
                 ))}
             </div>
@@ -37,7 +37,7 @@ export default function ProductGallery({ images, name }) {
                     transition={{ duration: 0.4 }}
                     className="w-full h-full flex items-center justify-center"
                 >
-                    {displayImages[activeImageIndex]}
+                    <img src={displayImages[activeImageIndex]} alt={`${name} main`} className="w-full h-full object-cover" />
                 </motion.div>
 
                 {/* Decorative corner accents simulating a premium product photo */}

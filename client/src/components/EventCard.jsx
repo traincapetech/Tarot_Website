@@ -6,10 +6,12 @@ export default function EventCard({ event }) {
         <div className="glass-card rounded-2xl overflow-hidden flex flex-col h-full group hover:shadow-xl transition-shadow duration-300">
             {/* Image Placeholder */}
             <div className="relative h-48 w-full bg-earth-800/10 dark:bg-earth-50/10 flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
-                <span className="text-6xl group-hover:scale-110 transition-transform duration-500 relative z-0">
-                    {event.image}
-                </span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 pointer-events-none" />
+                <img
+                    src={event.image}
+                    alt={event.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 relative z-0"
+                />
 
                 {/* Date Badge over image */}
                 <div className="absolute bottom-4 left-4 z-20 bg-white/90 dark:bg-black/90 backdrop-blur-md px-3 py-1 rounded-lg text-center shadow-lg">

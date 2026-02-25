@@ -14,6 +14,7 @@ const inter = Inter({
 export const metadata = {
   title: "Earth Healers | Spiritual & Healing E-commerce",
   description: "Spiritual, Healing, Divination E-commerce Platform offering crystals, tarot readings, and more.",
+  referrer: "no-referrer",
 };
 
 export default function RootLayout({ children }) {
